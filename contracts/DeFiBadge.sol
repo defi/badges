@@ -9,8 +9,10 @@ contract DeFiBadge is ERC721Full, MinterRole {
 
     uint256 nextTokenId = 1;
 
-    function mint(address to) public onlyMinter {
-        _mint(to, nextTokenId++);
+    function mint(address to, string tokenURI) public onlyMinter {
+        uint256 tokenId = nextTokenId++;
+        _mint(to, tokenId);
+        _setTokenURI(tokenId, tokenURI);
     }
 
     function approve(address to, uint256 tokenId) public {
