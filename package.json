@@ -8,5 +8,8 @@
   "license": "MIT",
   "devDependencies": {
     "truffle": "^4.1.14"
+  },
+  "dependencies": {
+    "openzeppelin-solidity": "^2.0.0"
   }
 }
