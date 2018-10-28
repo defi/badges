@@ -15,6 +15,10 @@ contract DeFiBadge is ERC721Full, MinterRole {
         _setTokenURI(tokenId, tokenURI);
     }
 
+    function setTokenUri(uint256 tokenId, string tokenURI) public onlyMinter {
+        _setTokenURI(tokenId, tokenURI);
+    }
+
     function approve(address to, uint256 tokenId) public {
         revert("Cannot transfer badges.");
     }
