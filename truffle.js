@@ -17,6 +17,16 @@ module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
   // to customize your Truffle configuration!
   networks: {
+    mainnet: {
+      provider: function() {
+        return new HDWalletProvider(
+          process.env.MNEMONIC,
+          "https://mainnet.infura.io/"
+        );
+      },
+      network_id: 1,
+      gasPrice: 1000000000
+    },
     rinkeby: {
       provider: function() {
         return new HDWalletProvider(
@@ -24,7 +34,8 @@ module.exports = {
           "https://rinkeby.infura.io/"
         );
       },
-      network_id: 3
+      network_id: 3,
+      gasPrice: 1000000000
     }
   }
 };
