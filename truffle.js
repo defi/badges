@@ -25,7 +25,7 @@ module.exports = {
         );
       },
       network_id: 1,
-      gasPrice: 1000000000
+      gasPrice: 2500000001
     },
     rinkeby: {
       provider: function() {
