@@ -13,10 +13,16 @@ const Bluebird = require("bluebird");
 module.exports = async cb => {
   const badgeContract = await DeFiBadge.deployed();
   console.log("Minting...");
-  await Bluebird.map(attendees, async attendee => {
-    console.log(`Mint for ${attendee}`);
-    const tx = await badgeContract.mint(attendee, BADGE_URL);
-    console.log("Finished tx", tx);
-  });
+  await Bluebird.map(
+    attendees,
+    async attendee => {
+      console.log(`Mint for ${attendee}`);
+      const tx = await badgeContract.mint(attendee, BADGE_URL);
+      console.log("Finished tx", tx);
+    },
+    {
+      concurrency: 10
+    }
+  );
   cb();
 };
