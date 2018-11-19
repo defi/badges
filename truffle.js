@@ -21,21 +21,22 @@ module.exports = {
       provider: function() {
         return new HDWalletProvider(
           process.env.MNEMONIC,
-          "https://mainnet.infura.io/"
+          "https://mainnet.infura.io/v3/aa2567ba598b40ee87e859c5f7b3b7e6"
         );
       },
       network_id: 1,
-      gasPrice: 4500000001
+      gasPrice: 10000000001,
+      gasLimit: 300000,
     },
     rinkeby: {
       provider: function() {
         return new HDWalletProvider(
           process.env.MNEMONIC,
-          "https://rinkeby.infura.io/"
+          "https://rinkeby.infura.io/v3/aa2567ba598b40ee87e859c5f7b3b7e6"
         );
       },
       network_id: 3,
-      gasPrice: 1000000000
+      gasPrice: 100000000000
     }
   }
 };
